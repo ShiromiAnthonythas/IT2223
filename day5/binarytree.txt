@@ -1,0 +1,27 @@
+ arr = [12, 21, 44, 2, 3, 65, 11];
+arr = sort(arr);  
+target = 44;
+n = length(arr);
+
+low = 1;
+high = n;
+
+tic;
+found = false;
+while low <= high
+    mid = floor((low + high) / 2);
+    if arr(mid) == target
+        fprintf("Element %d found at index %d.\n", target, mid);
+        found = true;
+        break;
+    elseif target < arr(mid)
+        high = mid - 1;
+    else
+        low = mid + 1;
+    end
+end
+
+if ~found
+    fprintf("Element %d not found in the array.\n", target);
+end
+toc;
